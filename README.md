@@ -1,4 +1,4 @@
-# Welcome to your Lovable project
+# Welcome to Travel Next project
 
 ## Project info
 
