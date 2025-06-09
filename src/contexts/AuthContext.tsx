@@ -57,10 +57,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const signInWithGoogle = async () => {
     try {
-      // Use the deployed domain for redirect URL
-      const redirectUrl = window.location.hostname === 'localhost' 
-        ? `${window.location.origin}/`
-        : 'https://travel-next-bolt.netlify.app/';
+      // Always use the deployed URL for production
+      const redirectUrl = 'https://travel-next-bolt.netlify.app/';
       
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
