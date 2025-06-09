@@ -9,7 +9,124 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string | null
+          email: string | null
+          full_name: string | null
+          id: string
+          traveler_type: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string | null
+          email?: string | null
+          full_name?: string | null
+          id: string
+          traveler_type?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string | null
+          email?: string | null
+          full_name?: string | null
+          id?: string
+          traveler_type?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      saved_destinations: {
+        Row: {
+          activities: string[] | null
+          best_time_to_visit: string | null
+          budget_estimate: string | null
+          city: string | null
+          country: string
+          destination_name: string
+          id: string
+          latitude: number | null
+          longitude: number | null
+          saved_at: string | null
+          tagline: string | null
+          user_id: string
+          visa_requirements: string | null
+        }
+        Insert: {
+          activities?: string[] | null
+          best_time_to_visit?: string | null
+          budget_estimate?: string | null
+          city?: string | null
+          country: string
+          destination_name: string
+          id?: string
+          latitude?: number | null
+          longitude?: number | null
+          saved_at?: string | null
+          tagline?: string | null
+          user_id: string
+          visa_requirements?: string | null
+        }
+        Update: {
+          activities?: string[] | null
+          best_time_to_visit?: string | null
+          budget_estimate?: string | null
+          city?: string | null
+          country?: string
+          destination_name?: string
+          id?: string
+          latitude?: number | null
+          longitude?: number | null
+          saved_at?: string | null
+          tagline?: string | null
+          user_id?: string
+          visa_requirements?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "saved_destinations_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      user_spins: {
+        Row: {
+          destination_name: string
+          id: string
+          spun_at: string | null
+          traveler_type: string | null
+          user_id: string | null
+        }
+        Insert: {
+          destination_name: string
+          id?: string
+          spun_at?: string | null
+          traveler_type?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          destination_name?: string
+          id?: string
+          spun_at?: string | null
+          traveler_type?: string | null
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_spins_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
