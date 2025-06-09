@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/contexts/AuthContext';
@@ -10,7 +9,7 @@ const GoogleSignInButton: React.FC = () => {
     <Button 
       onClick={signInWithGoogle}
       variant="outline"
-      className="w-full flex items-center gap-2 hover:bg-gray-50"
+      className="w-full flex items-center gap-3 hover:bg-gray-50 border-gray-300 bg-white text-gray-700 font-medium py-3 px-4 h-auto"
     >
       <svg className="w-5 h-5" viewBox="0 0 24 24">
         <path

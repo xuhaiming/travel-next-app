@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import AuthContainer from "@/components/auth/AuthContainer";
 import { useAuth } from "@/contexts/AuthContext";
@@ -9,12 +8,14 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-400 via-pink-500 to-red-500">
       <div className="container mx-auto px-4 py-8">
-        {/* Header with Auth */}
+        {/* Header */}
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-4xl font-bold text-white">Travel Next</h1>
-          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 min-w-[300px]">
-            <AuthContainer />
-          </div>
+          {user && (
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 min-w-[300px]">
+              <AuthContainer />
+            </div>
+          )}
         </div>
 
         {/* Main Content */}
@@ -29,13 +30,13 @@ const Index = () => {
           {user ? (
             <div className="space-y-4">
               <p className="text-lg">Welcome back! Ready to explore?</p>
-              <Button size="lg" className="bg-white text-purple-600 hover:bg-gray-100">
+              <Button size="lg" className="bg-white text-purple-600 hover:bg-gray-100 font-semibold">
                 Start Exploring
               </Button>
             </div>
           ) : (
             <div className="space-y-4">
-              <p className="text-lg">Sign in to start your personalized travel journey</p>
+              <p className="text-lg mb-6">Sign in to start your personalized travel journey</p>
               <div className="max-w-md mx-auto bg-white/10 backdrop-blur-sm rounded-lg p-6">
                 <AuthContainer />
               </div>
